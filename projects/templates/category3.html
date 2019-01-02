@@ -1,0 +1,61 @@
+{% extends "base.html" %} 
+{% load index %} 
+{% load static %} 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
+    <script src="{% static 'js/ga.js' %}"></script>
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7243260-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src =
+                ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demoadpacks.css' %}" />
+    <script src="{% static 'js/CKYIK53I.json' %}"></script>
+{% endblock %} 
+{% block content %}
+    <div id="grid-gallery" class="grid-gallery">
+        <section class="grid-wrap">
+            <ul class="grid">
+                <li class="grid-sizer"></li>
+                {% for project in projects %}
+                <li>
+                    <figure>
+                        <figcaption>
+                            <h3>Thundercats next level</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                        </figcaption>
+                        <img src="{{ project.image.url }}" alt="img01"/>
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+    <div class="row text-center bottom-button">
+        <a href="{% url 'all_projects' %}">Ver todo</a>
+    </div>
+{% endblock %} 
+{% block script %} 
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpGridGallery.js' %}"></script>
+    <script>
+        console.log('aa');
+        new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+    </script>
+{% endblock %}

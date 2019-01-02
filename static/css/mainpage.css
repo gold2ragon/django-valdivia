@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Atlantic-Cruise';
+    src: url('../font/Atlantic_Cruise-Demo.ttf');
+}
+@font-face {
+    font-family: 'Segoe-UI';
+    src: url('../font/Segoe-UI_39958.ttf');
+}
+.font-atlantic
+{
+    font-family: 'Atlantic-Cruise';
+}
+.font-segoe
+{
+    font-family: 'Segoe-UI';
+}
+html, body, .homepage
+{
+    height: 100%;
+    font-family: 'Atlantic-Cruise';
+    color: #707070;
+}
+a{
+    font-family: 'Atlantic-Cruise' !important;
+    color: #707070;
+    text-decoration: none !important;
+}
+a:hover
+{
+    color: #707070;
+}
+.logo
+{
+    font-size: 6rem;
+    /* margin: 30px auto; */
+    clear: both;
+}
+.lang
+{
+    float: right;
+    font-size: 1.5rem; 
+    margin-top: 20px;
+    margin-right: -20px; 
+}
+.navbar{
+    box-shadow: none !important;
+}
+.main-nav
+{
+    font-size: 2em;
+}
+.categories-nav
+{
+    font-size: 1.5em;
+}
+.active{
+    text-decoration: underline !important;
+}
+img{
+    /* width: 100% !important; */
+}
+div.image
+{
+    margin: 15px 0px;
+}
+.rgba-grey-strong
+{
+    background: #404040;
+    color: #707070;
+    font-family: 'Atlantic-Cruise';
+    font-size: 2rem;
+}
+.bottom-button
+{
+    margin: 25px 0px;
+    font-size: 1.5rem;
+}
+
+.job_details p{
+    font-size: 1.5rem;
+    font-family: 'Segoe-UI';
+    margin: 50px 0px;        
+}
+ul
+{
+    line-height: 1;
+}

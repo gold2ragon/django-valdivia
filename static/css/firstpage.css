@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Atlantic-Cruise';
+    src: url('../font/Atlantic_Cruise-Demo.ttf');
+}
+html, body, .homepage
+{
+    height: 100%;
+}
+
+.homepage{
+    background: url(../../static/image/background.JPG) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+.lang, .homepage a
+{
+    color: #707070 !important;
+    font-size: 3rem;
+    text-decoration: none;
+}
+.homepage .row
+{
+    height: 50%;
+}
+.homepage .row .col-md-6, .homepage .row .col-md-12
+{
+    display: table;
+    height: 100%;
+}
+.lang{
+    /* transform: translate(0%, 50%); */
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Atlantic-Cruise';
+}
+.logo
+{
+    color: black;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 6em;
+    font-family: 'Atlantic-Cruise';
+}

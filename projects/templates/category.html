@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load index %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pinterest-style.css' %}" />
+    <script type="text/javascript" src="{% static 'js/freewall.js' %}"></script>
+    <style type="text/css">
+        body {
+            background: rgba(231, 231, 231, 0.43);
+        }
+        .free-wall {
+            margin: 5px;
+        }
+        .brick {
+            width: 300px;
+        }
+        .info {
+            padding: 15px;
+            color: #333;
+        }
+        .brick img {
+            margin: 0px;
+            padding: 0px;
+            display: block;
+        }
+    </style>
+{% endblock %}
+    
+{% block content %}    
+    <!-- <div class="row"> -->
+        <div id="freewall" class="free-wall">
+            {% for project in projects %}
+            <div class="brick">
+                <img src="{{ project.image.url }}" width="100%">
+            </div>
+            {% endfor %}
+        </div>
+    <!-- </div> -->
+    <div class="row text-center bottom-button" >
+        <a href="{% url 'all_projects' %}">Ver todo</a>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        var wall = new Freewall("#freewall");
+        wall.reset({
+            selector: '.brick',
+            animate: true,
+            cellW: 200,
+            cellH: 'auto',
+            onResize: function() {
+                wall.fitWidth();
+            }
+        });
+
+        wall.container.find('.brick img').load(function() {
+            wall.fitWidth();
+        });
+    });
+    
+</script>
+{% endblock %}
+    
