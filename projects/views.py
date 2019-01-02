@@ -33,7 +33,7 @@ def contact(request):
         email_from = settings.EMAIL_HOST_USER
         message = "name: %s\nemail: %s\nmessage:\n%s" % (name, email, msg)
         try:
-            send_mail(affair, message, email_from, ['lion20121016@gmail.com'])
+            send_mail(affair, message, email_from, ['rodguinea@gmail.com'])
         except BadHeaderError:
             return HttpResponse('Failed')
         return HttpResponse('Success')
