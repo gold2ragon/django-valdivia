@@ -1,67 +1,59 @@
-{% extends "base.html" %}
-{% load index %}
-{% load static %}
+{% extends "base.html" %} 
+{% load index %} 
+{% load static %} 
+{% load static i18n %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/pinterest-style.css' %}" />
-    <script type="text/javascript" src="{% static 'js/freewall.js' %}"></script>
-    <style type="text/css">
-        body {
-            background: rgba(231, 231, 231, 0.43);
-        }
-        .free-wall {
-            margin: 5px;
-        }
-        .brick {
-            width: 300px;
-        }
-        .info {
-            padding: 15px;
-            color: #333;
-        }
-        .brick img {
-            margin: 0px;
-            padding: 0px;
-            display: block;
-        }
-    </style>
-{% endblock %}
-    
-{% block content %}    
-    <!-- <div class="row"> -->
-        <div id="freewall" class="free-wall">
-            {% for project in projects %}
-            <div class="brick">
-                <img src="{{ project.image.url }}" width="100%">
-            </div>
-            {% endfor %}
-        </div>
-    <!-- </div> -->
-    <div class="row text-center bottom-button" >
-        <a href="{% url 'all_projects' %}">Ver todo</a>
-    </div>
-{% endblock %}
+<link rel='stylesheet' href="{% static 'css/style.css' %}" media='screen' />
 
-
-{% block script %}
-<script type="text/javascript">
+<script src="{% static 'js/blocksit.min.js' %}"></script>
+<script>
     $(document).ready(function() {
-        var wall = new Freewall("#freewall");
-        wall.reset({
-            selector: '.brick',
-            animate: true,
-            cellW: 200,
-            cellH: 'auto',
-            onResize: function() {
-                wall.fitWidth();
+        $(window).load( function() {
+            responsive();
+        });
+        $(window).resize(function() {
+            responsive();
+        });
+        function responsive() {
+            if ($('.container').width() < 576)
+            {
+                col = 1;
+                $('#container').width($('.container').width()-18);    
             }
-        });
-
-        wall.container.find('.brick img').load(function() {
-            wall.fitWidth();
-        });
+            else if ($('.container').width() < 768)
+            {
+                col = 2;
+                $('#container').width($('.container').width()-38);    
+            }
+            else {
+                col=3
+                $('#container').width($('.container').width()-50);
+            }
+            $('#container').BlocksIt({
+                numOfCol: col,
+                offsetX: 8,
+                offsetY: 8
+            });
+        }
     });
-    
-</script>
+    </script>
+{% endblock %} 
+{% block content %}
+<section id="wrapper">
+    <div id="container">
+        {% for project in projects %}
+        <div class="grid">
+            <div class="imgholder">
+                <a href="{% url 'project' project.id %}"><img src="{{ project.image.url }}" width="100%" /></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div> 
+</section>
+<div class="text-center bottom-button" >
+    <a href="{% url 'all_projects' %}">{% trans 'See everything' %}</a>
+</div>
+{% endblock %} 
+{% block script %} 
+
 {% endblock %}
-    

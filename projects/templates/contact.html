@@ -25,7 +25,7 @@
             margin-bottom: 0.5rem;
         }
         form {
-            margin: 0 20px 0 18px;
+            margin: 0 20px;
             background: black;
             color: white;
             text-align: center;
@@ -47,9 +47,14 @@
             margin: 0 auto;
         }
         
-        @media (max-width: 575px) { #contact { width: 80%; } .border-right { border-right: none !important; } }
+        @media (max-width: 575px) { #contact { width: 70%; } .border-right { border-right: none !important; } }
         @media (min-width: 576px) { #contact { width: 400px; } .border-right { border-right: none !important; } }
-        @media (min-width: 768px) { #contact { width: 600px; } .border-right { border-right: 3px solid white !important; } }
+        @media (min-width: 768px) { #contact { width: 500px; } .border-right { border-right: 3px solid white !important; } }
+
+        .alert {
+            width: 50%;
+            margin: 20px auto;
+        }
 
     </style>
 {% endblock %}
@@ -58,24 +63,29 @@
     <div class="row">
         <div id="contact">
             <img src="{% static 'image/media.png' %}">
-            <form action="{% url 'contact' %}">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.source.errors }}
+                {{ form.source }}
+
                 <div class="row header">
                     <div class="col-md-3 border-right">
                         <p>{% trans 'FIRST NAME' %}</p>
-                        <input type="text">
+                        {{ form.name }}
                     </div>
                     <div class="col-md-5 border-right">
                         <p>{% trans 'MAIL' %}</p>
-                        <input type="text">
+                        {{ form.from_email }}
                     </div>
                     <div class="col-md-4">
                         <p>{% trans 'AFFAIR' %}</p>
-                        <input type="text">
+                        {{ form.affair }}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12"><p style="margin-bottom: -8px; text-align: left;">{% trans 'MESSAGE' %}</p></div>
-                    <div class="col-md-12"><textarea rows="5"></textarea></div>
+                    <div class="col-md-12">{{ form.message }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-8 border-right" style="text-align: left; border-top: 3px solid white;">rodguinea@gmail.com<br>+51 995 064 016</div>
@@ -85,3 +95,42 @@
         </div>
     </div>
 {% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/notify.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            if("{{ msg }}" == "Success") {
+                $('body').notify({
+                    message: 'Email Sent Successfully.',
+                    type: 'success'
+                });
+            }
+        })
+        $('#btn_submit').click(function() {
+            $.ajax({
+                type: 'POST',
+                url: '',
+                data: {
+                    
+                    name: $('#id_name').val(),
+                    from_email: $('#id_from_email').val(),
+                    affair: $('#id_affair').val(),
+                    message: $('#id_message').val(),
+                    csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(resultData) {
+                    if(resultData == 'Success') {
+                        $.notify("Email sent successfully!", "success");
+                    }
+                    else {
+                        $.notify("Email sent successfully!", "error");
+                    }
+                }
+            });
+        });
+        
+    </script>
+{% endblock script %}
+    
