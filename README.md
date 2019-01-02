@@ -32,5 +32,5 @@ Input username, email, password and enter 'y'.
 ```console
 python manage.py runserver
 ```
-Check localhost:8000 in web browser
-Check localhost:8000/admin for admin site
+Check localhost:8000 in web browser.<br>
+Check localhost:8000/admin for admin site.
