@@ -27,12 +27,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="index"),
     path('mainpage/', views.mainpage, name="mainpage"),
+]
+urlpatterns += i18n_patterns(
     path('bio/', views.bio, name="bio"),
     path('jobs/', views.jobs, name="jobs"),
+    path('en/jobs/', views.jobs, name="en_jobs"),
     path('contact/', views.contact, name="contact"),
     path('job/<int:index>/', views.category, name="category"),
     path('job/all/', views.all_projects, name="all_projects"),    
     path('project/<int:pk>/', views.project, name="project"),
-    
+    prefix_default_language = False,   
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

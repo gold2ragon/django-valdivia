@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static i18n %}
 {% block content %}
     <div class="row job_details">
         <div class="offset-md-2 col-md-8 offset-sm-1 col-sm-10">
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="text-center bottom-button" >
-        <a class="font-segoe" href="{{request.META.HTTP_REFERER}}">Volver</a>
+        <a class="font-segoe" href="{{request.META.HTTP_REFERER}}">{% trans 'Return' %}</a>
     </div>
     <script>
         $(document).ready(function() {

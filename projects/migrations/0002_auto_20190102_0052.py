@@ -3,7 +3,7 @@
 from django.db import migrations
 
 def seed_category(apps, schema_editor):
-    categories = ['INSTITUCIONAL', 'FICCIÓN / NO FICCIÓN', 'MÚSICA', 'POLÍTICA', 'PUBLICIDAD']
+    categories = ['INSTITUTIONAL', 'FICTION / NO FICTION', 'MUSIC', 'POLITICS', 'ADVERTISING']
     Category = apps.get_model('projects', 'Category')
     for item in categories:
         category = Category(name=item)

@@ -29,6 +29,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('is_principal', models.BooleanField(default=False)),
                 ('category', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='projects.Category')),
+                ('order', models.IntegerField(default=1)),
             ],
         ),
     ]

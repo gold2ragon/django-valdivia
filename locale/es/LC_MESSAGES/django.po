@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 20:48+0800\n"
+"POT-Creation-Date: 2019-01-02 16:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: projects/templates/index.html:5
-msgid "Let's translate this"
-msgstr "Vamos a traducir esto"
+#: projects/templates/base.html:19
+msgid "Languages"
+msgstr "Idiomas"
 
-#: projects/views.py:7
-msgid "WelcomeMessage"
-msgstr "Mensaje de bienvenida"
+#: projects/templates/base.html:20
+msgid "Lalo Valdivia"
+msgstr "Lalo Valdivia"
+
+#: projects/templates/base.html:25
+msgid "BIO"
+msgstr "BIO"
+
+#: projects/templates/base.html:26
+msgid "JOBS"
+msgstr "TRABAJOS"
+
+#: projects/templates/base.html:27
+msgid "CONTACT"
+msgstr "CONTACTO"
+
+#: projects/templates/base.html:35
+msgid "INSTITUTIONAL"
+msgstr "INSTITUCIONAL"
+
+#: projects/templates/base.html:36
+msgid "FICTION / NO FICTION"
+msgstr "FICCIÓN / NO FICCIÓN"
+
+#: projects/templates/base.html:37
+msgid "MUSIC"
+msgstr "MÚSICA"
+
+#: projects/templates/base.html:38
+msgid "POLITICS"
+msgstr "POLÍTICA"
+
+#: projects/templates/base.html:39
+msgid "ADVERTISING"
+msgstr "PUBLICIDAD"
+
+#: projects/templates/category4.html:45 projects/templates/jobs.html:39
+msgid "See everything"
+msgstr "Ver todo"
+
+#: projects/templates/contact.html:64
+msgid "FIRST NAME"
+msgstr "NOMBRE"
+
+#: projects/templates/contact.html:68
+msgid "MAIL"
+msgstr "CORREO"
+
+#: projects/templates/contact.html:72
+msgid "AFFAIR"
+msgstr "ASUNTO"
+
+#: projects/templates/contact.html:77
+msgid "MESSAGE"
+msgstr "MENSAJE"
+
+#: projects/templates/contact.html:82
+msgid "SUBMIT"
+msgstr "ENVIAR"
+
+#: projects/templates/project.html:19
+msgid "Return"
+msgstr "Volver"
+
+#~ msgid "LALO VALDIVIA"
+#~ msgstr "LALO VALDIVIA"

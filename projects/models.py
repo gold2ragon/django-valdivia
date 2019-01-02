@@ -23,6 +23,7 @@ class Project(models.Model):
     )
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     is_principal = models.BooleanField(default=False)
-
+    
+    order = models.IntegerField(default=1)
     def __str__(self):
         return self.title

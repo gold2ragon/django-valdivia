@@ -1,7 +1,87 @@
 {% extends "base.html" %}
 {% load static %}
+{% load static i18n %}
+
+{% block css %}
+    <style>
+        input {
+            width: 100%;
+            outline: none;
+        }
+        form {
+            padding-bottom: 16px; border-radius: 0px 0px 25px 25px;
+        }
+        form .row {
+            margin: 0 10px;   
+        }
+        .header div{
+            
+            border-bottom: 3px solid white;
+        }
+        .header div, form .col-md-12 {
+            padding: 8px !important;
+        }
+        p{
+            margin-bottom: 0.5rem;
+        }
+        form {
+            margin: 0 20px 0 18px;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            resize: none;
+            outline: none;
+        }
+        #btn_submit {
+            background: transparent;
+            color: white;
+            border: none;
+            height: 100%;
+            cursor: pointer;
+            padding: 10px 0px;
+        }
+        #contact {
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 575px) { #contact { width: 80%; } .border-right { border-right: none !important; } }
+        @media (min-width: 576px) { #contact { width: 400px; } .border-right { border-right: none !important; } }
+        @media (min-width: 768px) { #contact { width: 600px; } .border-right { border-right: 3px solid white !important; } }
+
+    </style>
+{% endblock %}
+    
 {% block content %}
     <div class="row">
-        <img style="width: auto !important; float: right; margin: 50px auto;" src="{% static 'image/video.png' %}">
+        <div id="contact">
+            <img src="{% static 'image/media.png' %}">
+            <form action="{% url 'contact' %}">
+                <div class="row header">
+                    <div class="col-md-3 border-right">
+                        <p>{% trans 'FIRST NAME' %}</p>
+                        <input type="text">
+                    </div>
+                    <div class="col-md-5 border-right">
+                        <p>{% trans 'MAIL' %}</p>
+                        <input type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <p>{% trans 'AFFAIR' %}</p>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><p style="margin-bottom: -8px; text-align: left;">{% trans 'MESSAGE' %}</p></div>
+                    <div class="col-md-12"><textarea rows="5"></textarea></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 border-right" style="text-align: left; border-top: 3px solid white;">rodguinea@gmail.com<br>+51 995 064 016</div>
+                    <div class="col-md-4" style="border-top: 3px solid white;"><input id="btn_submit" type="button" value="{% trans 'SUBMIT' %}"></div>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}

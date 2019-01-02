@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load index %}
+{% load static i18n %}
 {% block content %}
     <div class="row">
         {% for category in categories %}
@@ -25,9 +26,9 @@
                 {% endif %}
             {% endwith %} 
                 <div class="image view overlay">
-                    <img src="{{ category.image.url }}" category="{{category.category.name}}" class="img-fluid " alt="sample image">
-                    <a href="{% url 'category' '0' %}" class="mask flex-center rgba-grey-strong">
-                        <p>{{category.category.name}}</p>
+                    <img src="{{ category.image.url }}" category="{% trans category.category.name %}" class="img-fluid " alt="sample image">
+                    <a href="{% url 'category' forloop.counter0 %}" class="mask flex-center rgba-grey-strong text-center font-segoe">
+                        <p>{% trans category.category.name %}</p>
                     </a>
                 </div>
             </div>
@@ -35,6 +36,6 @@
     </div>        
     
     <div class="text-center bottom-button" >
-        <a href="{% url 'all_projects' %}">Ver todo</a>
+        <a href="{% url 'all_projects' %}">{% trans 'See everything' %}</a>
     </div>
 {% endblock %}

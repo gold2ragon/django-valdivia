@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Lalo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/firstpage.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'font/AtlanticCruise.css' %}" />
+    <link rel="stylesheet" media="screen" href="{% static 'css/firstpage.css' %}">
     
 </head>
 <body>
     <div class="container homepage">
         <div class="row">
-            <div class="col-md-12 text-center"><div class="logo">LALO VALIDIVIA</div></div>
+            <div class="col-md-12 text-center"><div class="logo">Lalo Valdivia</div></div>
         </div>
         <div class="row">
                 
-            <div class="col-md-6 text-center"><div class="lang"><a href="{% url 'mainpage' %}"><span>E</span>NGLISH</a></div></div>
-            <div class="col-md-6 text-center"><div class="lang"><a href="{% url 'jobs' %}"><span>E</span>SPAÑOL</div></div>
+            <div class="col-md-6 text-center"><div class="lang"><a href="{% url 'en_jobs' %}"><span>English</a></div></div>
+            <div class="col-md-6 text-center"><div class="lang"><a href="{% url 'jobs' %}"><span>Espanol</div></div>
         </div>
     </div>
-    
 </body>
 </html>
