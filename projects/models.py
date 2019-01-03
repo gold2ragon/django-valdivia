@@ -9,6 +9,17 @@ class Category(models.Model):
 
 # Create your models here.
 class Project(models.Model):
+    LANGUAGES = (
+        ('en', 'English'),
+        ('es', 'Español'),
+    )
+
+    language = models.CharField(
+        max_length=2,
+        choices=LANGUAGES,
+        default='es',
+        help_text='Select language',
+    )
     title = models.CharField(max_length=50, unique=True)
     image = models.ImageField()
     video = models.URLField(null=True, blank=True)
@@ -27,3 +38,11 @@ class Project(models.Model):
     order = models.IntegerField(default=1)
     def __str__(self):
         return self.title
+
+class Bio(models.Model):
+    name = models.CharField(max_length=20)
+    image = models.ImageField()
+    english_bio = models.TextField()
+    spanish_bio = models.TextField()
+    def __str__(self):
+        return self.name

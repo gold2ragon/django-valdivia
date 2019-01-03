@@ -100,14 +100,6 @@
 {% block script %}
     <script src="{% static 'js/notify.min.js' %}"></script>
     <script>
-        $(document).ready(function() {
-            if("{{ msg }}" == "Success") {
-                $('body').notify({
-                    message: 'Email Sent Successfully.',
-                    type: 'success'
-                });
-            }
-        })
         $('#btn_submit').click(function() {
             $.ajax({
                 type: 'POST',
@@ -122,10 +114,10 @@
                 },
                 success: function(resultData) {
                     if(resultData == 'Success') {
-                        $.notify("Email sent successfully!", "success");
+                        $.notify("{% trans 'Email sent successfully!' %}", "success");
                     }
                     else {
-                        $.notify("Email sent successfully!", "error");
+                        $.notify("{% trans 'Email sent Failed!' %}", "error");
                     }
                 }
             });

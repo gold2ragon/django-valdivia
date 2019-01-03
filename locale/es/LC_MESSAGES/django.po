@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-02 16:44+0000\n"
+"POT-Creation-Date: 2019-01-03 03:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: projects/templates/allprojects.html:57 projects/templates/project.html:19
+msgid "Return"
+msgstr "Volver"
 
 #: projects/templates/base.html:19
 msgid "Languages"
@@ -58,33 +62,37 @@ msgstr "POLÍTICA"
 msgid "ADVERTISING"
 msgstr "PUBLICIDAD"
 
-#: projects/templates/category4.html:45 projects/templates/jobs.html:39
+#: projects/templates/category.html:55 projects/templates/jobs.html:39
 msgid "See everything"
 msgstr "Ver todo"
 
-#: projects/templates/contact.html:64
+#: projects/templates/contact.html:74
 msgid "FIRST NAME"
 msgstr "NOMBRE"
 
-#: projects/templates/contact.html:68
+#: projects/templates/contact.html:78
 msgid "MAIL"
 msgstr "CORREO"
 
-#: projects/templates/contact.html:72
+#: projects/templates/contact.html:82
 msgid "AFFAIR"
 msgstr "ASUNTO"
 
-#: projects/templates/contact.html:77
+#: projects/templates/contact.html:87
 msgid "MESSAGE"
 msgstr "MENSAJE"
 
-#: projects/templates/contact.html:82
+#: projects/templates/contact.html:92
 msgid "SUBMIT"
 msgstr "ENVIAR"
 
-#: projects/templates/project.html:19
-msgid "Return"
-msgstr "Volver"
+#: projects/templates/contact.html:117
+msgid "Email sent successfully!"
+msgstr "Correo electrónico enviado con éxito!"
+
+#: projects/templates/contact.html:120
+msgid "Email sent Failed!"
+msgstr "Correo electrónico enviado Fallido!"
 
 #~ msgid "LALO VALDIVIA"
 #~ msgstr "LALO VALDIVIA"

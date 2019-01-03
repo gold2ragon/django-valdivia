@@ -18,3 +18,7 @@ def mod(a, b):
 @register.filter
 def count(List):
     return len(List)
+
+@register.filter
+def minus(a, b):
+    return a - b

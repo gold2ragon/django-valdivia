@@ -9,23 +9,34 @@
 <script>
     $(document).ready(function() {
         $(window).load( function() {
-            
-            $('#container').width($('.container').width()-50);
-            $('#container').BlocksIt({
-                numOfCol: 3,
-                offsetX: 8,
-                offsetY: 8
-            });
+            responsive();
         });
         $(window).resize(function() {
-            col=3
-            $('#container').width($('.container').width()-50);
+            responsive();
+        });
+        function responsive() {
+            if ($('.container').width() < 576)
+            {
+                col = 1;
+                // $('#container').width($('.container').width()-18);    
+            }
+            else if ($('.container').width() < 768)
+            {
+                col = 2;
+                // $('#container').width($('.container').width()-38);    
+            }
+            else {
+                col=3
+                
+            }
+            $('#container').width($('.container').width());
+            console.log($('.container').width());
             $('#container').BlocksIt({
                 numOfCol: col,
-                offsetX: 8,
-                offsetY: 8
+                offsetX: 15,
+                offsetY: 15
             });
-        });
+        }
     });
     </script>
 {% endblock %} 
@@ -39,8 +50,12 @@
             </div>
         </div>
         {% endfor %}
+        
     </div> 
 </section>
+<div class="text-center bottom-button" >
+    <a class="font-segoe" href="{{request.META.HTTP_REFERER}}">{% trans 'Return' %}</a>
+</div>
 {% endblock %} 
 {% block script %} 
 
